@@ -83,6 +83,7 @@
             this.Controls.Add(this.splitContainerFrames);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imageBoxFrameGrabber)).EndInit();
             this.splitContainerFrames.Panel1.ResumeLayout(false);
             this.splitContainerFrames.Panel2.ResumeLayout(false);
