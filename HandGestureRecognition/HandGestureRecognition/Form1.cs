@@ -61,6 +61,7 @@ namespace HandGestureRecognition
 
             // gắn thêm FrameGrabber vào Eventhandler để truy cập vào hsv frame and YCrCB frame
             Application.Idle += new EventHandler(FrameGrabber);
+           
         }
 
         // truy cập vào khung tham chiếu từ video file
@@ -84,12 +85,11 @@ namespace HandGestureRecognition
                 imageBoxFrameGrabber.Image = currentFrame;
             }
         }
-
+        // class MemStorage() để tạo bộ nhớ mở cho openCV
+        MemStorage storage = new MemStorage();
         // chiết xuất ra đường viền bao bọc bàn tay
         private void ExtractContourAndHull(Image<Gray, byte> skin)
-        {
-            // class MemStorage() để tạo bộ nhớ mở cho openCV
-            using (MemStorage storage = new MemStorage())
+        {            
             {
                 // tìm đường viền bao bọc bàn tay
                 Contour<Point> contours = skin.FindContours(Emgu.CV.CvEnum.CHAIN_APPROX_METHOD.CV_CHAIN_APPROX_SIMPLE, Emgu.CV.CvEnum.RETR_TYPE.CV_RETR_LIST, storage);
@@ -167,13 +167,16 @@ namespace HandGestureRecognition
             }
         }
         // ve va dem so luong ngon tay
+     //   int fingerNum = 0;
         private void DrawAndComputeFingersNum()
         {
+            
             int fingerNum = 0;
 
             #region defects drawing
             for (int i = 0; i < defects.Total; i++)
             {
+                LoadListView();
                 // khởi tạo 3 điểm startpoint , depthpoint và endpoint của convexity defect
                 // hàm PointF(single,single) để khởi tạo 1 điểm với các  tọa độ cụ thể 
                 PointF startPoint = new PointF((float)defectArray[i].StartPoint.X,
@@ -198,16 +201,17 @@ namespace HandGestureRecognition
 
                 CircleF endCircle = new CircleF(endPoint, 5f);
 
-
-                // nếu đoạn nối giữa start point và end point đủ lớn thì sẽ được tính là 1 ngón tay
-                if ((startCircle.Center.Y < box.center.Y || depthCircle.Center.Y < box.center.Y) && (startCircle.Center.Y < depthCircle.Center.Y) && (Math.Sqrt(Math.Pow(startCircle.Center.X - depthCircle.Center.X, 2) + Math.Pow(startCircle.Center.Y - depthCircle.Center.Y, 2)) > box.size.Height / 6.5))
-                {
-                    fingerNum++;
-                    // vẽ đoạn màu da cam để xác định số ngón tay từ startpoint đến depthpoint
-                    currentFrame.Draw(startDepthLine, new Bgr(Color.Orange), 2);
-
-                    // currentFrame.Draw(depthEndLine, new Bgr(Color.Magenta), 2);
-                }
+                
+                
+                    // nếu đoạn nối giữa start point và end point đủ lớn thì sẽ được tính là 1 ngón tay
+                    if ((startCircle.Center.Y < box.center.Y || depthCircle.Center.Y < box.center.Y) && (startCircle.Center.Y < depthCircle.Center.Y) && (Math.Sqrt(Math.Pow(startCircle.Center.X - depthCircle.Center.X, 2) + Math.Pow(startCircle.Center.Y - depthCircle.Center.Y, 2)) > box.size.Height / 6.5))
+                    {
+                        fingerNum++;
+                        // vẽ đoạn màu da cam để xác định số ngón tay từ startpoint đến depthpoint
+                        currentFrame.Draw(startDepthLine, new Bgr(Color.Orange), 2);                     
+                        // currentFrame.Draw(depthEndLine, new Bgr(Color.Magenta), 2);
+                    }
+                
 
 
                 currentFrame.Draw(startCircle, new Bgr(Color.Red), 2); // start point biểu diễn bằng nốt màu đỏ
@@ -220,7 +224,11 @@ namespace HandGestureRecognition
             // hàm MCvFont(FONT, Double, Double) để tạo phông chữ (hiể thị số lượng ngón tay), quy mô theo chiều ngang và dọc
             MCvFont font = new MCvFont(Emgu.CV.CvEnum.FONT.CV_FONT_HERSHEY_DUPLEX, 5d, 5d);
             currentFrame.Draw(fingerNum.ToString(), ref font, new Point(50, 150), new Bgr(Color.White));
-
+            
+            void LoadListView()
+            {
+                Lsv.Items.Add(fingerNum.ToString());
+            }
 
         }
 
@@ -234,5 +242,11 @@ namespace HandGestureRecognition
 
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("do you want to quit!", "Note", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+               == DialogResult.Yes)
+                Application.Exit();
+        }
     }
 }
