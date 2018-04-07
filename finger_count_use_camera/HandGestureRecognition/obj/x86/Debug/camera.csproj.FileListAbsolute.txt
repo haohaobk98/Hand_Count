@@ -1,0 +1,16 @@
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\cvextern.dll
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\HandGestureRecognition.exe.config
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\HandGestureRecognition.exe
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\HandGestureRecognition.pdb
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\Emgu.CV.dll
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\Emgu.CV.UI.dll
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\Emgu.Util.dll
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\HandGestureRecognition.SkinDetector.dll
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\bin\Debug\HandGestureRecognition.SkinDetector.pdb
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\camera.csprojResolveAssemblyReference.cache
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\HandGestureRecognition.Form1.resources
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\HandGestureRecognition.Properties.Resources.resources
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\camera.csproj.GenerateResource.Cache
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\camera.csproj.CoreCompileInputs.cache
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\HandGestureRecognition.exe
+C:\Users\Ki Thuat 88\Desktop\hand_count_use_camera\finger_count_use_camera\HandGestureRecognition\obj\x86\Debug\HandGestureRecognition.pdb
